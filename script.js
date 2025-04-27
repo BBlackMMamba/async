@@ -110,3 +110,16 @@ const login = (email, password) => {
 შეცდომის შემთხვევაში დააბრუნოს error message
 გამოიყენეთ try/catch.
 */
+
+async function loginUser(email, password) {
+    try {
+        let response = await login(email, password);
+        return response.token
+    } catch (error) {
+        return error.message
+    }
+
+}
+
+loginUser('test@mail.com', '123').then(console.log);
+loginUser('test2@mail.com', '1234').then(console.log);
